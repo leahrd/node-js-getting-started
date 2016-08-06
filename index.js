@@ -7,7 +7,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use('/lab8', express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public'));
 //app.use(express.static(__dirname + '/public'));
 //app.use(opbeat.middleware.express())
 
@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
     //response.send(cool());
 //});
 
-app.get('/', function(request,response) {
+app.get('/lab8', function(request,response) {
     response.send(__dirname + 'public/mystatic.html');
 });
 
