@@ -23,9 +23,9 @@ app.set('view engine', 'ejs');
     //response.send(cool());
 //});
 
-app.get('/', function(request,response) {
-    response.send(__dirname + 'public/mystatic.html');
-});
+//app.get('/', function(request,response) {
+    //response.send('public/mystatic.html');
+//});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
