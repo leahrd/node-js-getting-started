@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request,response) {
     //response.send(__dirname + 'public/mystatic.html');
-    response.render('public/mystatic.html');
+    response.render('mystatic.html');
 });
 
 app.listen(app.get('port'), function() {
