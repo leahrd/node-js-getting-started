@@ -24,8 +24,9 @@ app.set('view engine', 'ejs');
 //});
 
 app.get('/lab8', function(request,response) {
+    response.send('public/mystatic.html');
     //response.send(__dirname + 'public/mystatic.html');
-    response.render('public/mystatic.html');
+    //response.render('public/mystatic.html');
 });
 
 app.listen(app.get('port'), function() {
