@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 
 app.get('/lab8', function(request,response) {
     //response.send('public/mystatic.html');
-    response.sendfile(__dirname + 'public/mystatic.html');
+    response.sendfile('public/mystatic.html');
     //response.render('public/mystatic.html');
 });
 
