@@ -23,9 +23,9 @@ app.set('view engine', 'ejs');
     //response.send(cool());
 //});
 
-app.get('morning-dawn-55488.herokuapp.com/lab8', function(request,response) {
-    //response.send(__dirname + 'public/mystatic.html');
-    response.render('public/mystatic.html');
+app.get('/lab8', function(request,response) {
+    response.send(__dirname + 'public/mystatic.html');
+    //response.render('public/mystatic.html');
 });
 
 app.listen(app.get('port'), function() {
