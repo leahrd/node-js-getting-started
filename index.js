@@ -10,14 +10,14 @@ app.set('port', (process.env.PORT || 5000));
 
 //app.use('/', express.static(__dirname + '/public'));
 
-app.use(cors());
+app.use('/',cors());
 
 // views is directory for all template files
 //app.set('views', __dirname + '/views');
 //app.set('view engine', 'ejs');
 
 
-app.get('/redline.json', function(response,request) {
+app.get('/redline.json', function(request, response) {
     //response.sendfile('public/mystatic.html');
     response.set('Content-Type','text/plain');
     var data = "GET didn't work";
