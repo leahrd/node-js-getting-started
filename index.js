@@ -1,7 +1,5 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
-
-
 //var cors = require('cors');
 var app = express();
 var needle = require('needle');
@@ -11,6 +9,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 //app.use(cors());
+
 //views is directory for all template files
 app.set('views',__dirname + '/views');
 app.set('view engine', 'ejs');
@@ -38,16 +37,14 @@ app.get('/redline.json', function(request, response) {
     var data = " ";
     
     needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, resp) {
-	if(!error && response.statusCode == 200) {
-
+	if(!error && resp.statusCode == 200) {
 	    data = resp.body;	    
 	    resp.set('Content-Type', 'text/plain');
 	    resp.send(data);
-	    
 	}
 	else {
 	    data = "ERROR: " + error + "status is: " + response.statusCode;
-	    response.send(data);
+	    resp.send(data);
 	}
     });
 });
