@@ -16,10 +16,14 @@ app.set('views',__dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/redline.json', function(request, response) {
+    response.header('Access-Control-Allow-Origin', 'http://developer.mbta.com/lib/rthr/red.json');
+    response.header('Access-Control-Allow-Methods', 'GET, POST');
+    response.header('Access-Control-Allow-Methods', 'Content-Type', 'text/plain');
     response.set('Content-Type', 'text/plain');
     var data = "GET didn't work";
     needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, response) {
 	if(!error && response.statusCode == 200) {
+
 	    data = response.body;	    
 	    response.send(data);
 	    
