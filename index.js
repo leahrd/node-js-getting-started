@@ -19,11 +19,12 @@ app.use(cors());
 
 app.get('/redline.json', function(request,response) {
     //response.sendfile('public/mystatic.html');
+    response.set('Content-Type','text/plain');
     var data = "GET didn't work";
     needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, response) {
 	if(!error && response.statusCode == 200) {
 	    data = response.body;
-	    response.set('Content-Type','text/plain');
+
 	    response.send(data);
 	}
 	else {
