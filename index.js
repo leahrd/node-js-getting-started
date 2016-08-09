@@ -1,6 +1,5 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
-//var cors = require('cors');
 var app = express();
 var needle = require('needle');
 
@@ -8,7 +7,6 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-//app.use(cors());
 
 //views is directory for all template files
 app.set('views',__dirname + '/views');
@@ -30,8 +28,6 @@ app.get('/lab8', function(request,response) {
 
 app.get('/redline.json', function(request, response) {
     response.header("Access-Control-Allow-Origin", "http://developer.mbta.com/lib.rthr/redline.json");
-    //response.header('Access-Control-Allow-Methods', 'GET, POST');
-    //response.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
     response.header("Access-Control-Allow-Headers", "X-Requested-With");
     response.set('Content-Type','text/plain');
     var data = " ";
@@ -39,7 +35,6 @@ app.get('/redline.json', function(request, response) {
     needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, resp) {
 	if(!error && resp.statusCode == 200) {
 	    data = resp.body;	    
-	    //response.set('Content-Type', 'text/plain');
 	    response.send(data);
 	}
 	else {
