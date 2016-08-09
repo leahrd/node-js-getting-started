@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.get('/redline.json', function(request,response) {
     //response.sendfile('public/mystatic.html');
     var data = "GET didn't work";
-    needle.get('http://developer.mbta.com/lib/rthr/red.json'm function(error, response) {
+    needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, response) {
 	data = "Needle.get";
 	if(!error && response.statusCode == 200) {
 	    data = response.body;
