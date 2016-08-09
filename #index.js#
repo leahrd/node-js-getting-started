@@ -39,12 +39,12 @@ app.get('/redline.json', function(request, response) {
     needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, resp) {
 	if(!error && resp.statusCode == 200) {
 	    data = resp.body;	    
-	    //response.set('Content-Type', 'text/plain');
-	    response.send(data);
+	    respond.set('Content-Type', 'text/plain');
+	    respond.send(data);
 	}
 	else {
 	    data = "ERROR: " + error + "status is: " + response.statusCode;
-	    response.send(data);
+	    respond.send(data);
 	}
     });
 });
