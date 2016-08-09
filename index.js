@@ -13,15 +13,14 @@ app.set('port', (process.env.PORT || 5000));
 app.use(cors());
 
 // views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+//app.set('views', __dirname + '/views');
+//app.set('view engine', 'ejs');
 
 
 app.get('/redline.json', function(request,response) {
     //response.sendfile('public/mystatic.html');
     var data = "GET didn't work";
     needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, response) {
-	data = "Needle.get";
 	if(!error && response.statusCode == 200) {
 	    data = response.body;
 	    response.set('Content-Type','text/plain');
@@ -29,11 +28,11 @@ app.get('/redline.json', function(request,response) {
 	}
 	else {
 	    data = "ERROR: " + error + "status is: " + response.statusCode;
+	    response.send(data);
 	}
     });
+});
 
-//app.listen(app.get('port'), function() {
-  //console.log('Node app is running on port', app.get('port'));
-    //});
-}
-
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
