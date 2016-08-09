@@ -17,7 +17,7 @@ app.use(cors());
 //app.set('view engine', 'ejs');
 
 
-app.get('/redline.json', function(request,response) {
+app.get('/redline.json', function(response,request) {
     //response.sendfile('public/mystatic.html');
     response.set('Content-Type','text/plain');
     var data = "GET didn't work";
