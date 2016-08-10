@@ -27,7 +27,6 @@ app.get('/lab8', function(request,response) {
 
 
 app.get('/redline.json', function(request, response) {
-    //response.header("Access-Control-Allow-Origin", "http://developer.mbta.com/lib.rthr/redline.json");
     response.header("Access-Control-Allow-Origin", "*");
     response.header("Access-Control-Allow-Headers", "X-Requested-With");
     response.set('Content-Type','text/plain');
